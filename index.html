@@ -1,106 +1,49 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
+
 <head>
-<meta charset="utf-8" />
-<meta name="keywords" content="Tina Yente" />
-<meta name="description" content="a little thing i can do" />
-<title>loveTimeline</title>
-<link href="css/default.css" rel="stylesheet" />
-<link href="css/history.css" rel="stylesheet" />
-<!-- 添加百度统计 -->
-<!--
-<script src="//yanhaijing.com/assets/plugin/tongji/baidu.js"></script>
--->
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/garden_dev.js"></script>
-<script type="text/javascript" src="js/functions_dev.js"></script>
+    <title>Loving timer</title>
+    <script type="text/javascript" src="static/jquery.min.js"></script>
+    <script type="text/javascript" src="static/TimeCircles.js"></script>
+    <link rel="stylesheet" href="static/bootstrap.min.css">
+    <link rel="stylesheet" href="static/TimeCircles.css" />
+    <link rel="icon" href="lovers.ico">
+    <style>
+        body {
+            -webkit-font-smoothing: antialiased;
+            font-family: Helvetica Neue, Helvetica, Hiragino Sans GB, Microsoft YaHei, Arial, sans-serif;
+			background:url(./love.jpg)  no-repeat center center;
+			background-size:cover;
+			background-attachment:fixed;
+			background-color:#CCCCCC;
+        }
+
+        .container {
+            width: 800px;
+            height: 340px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            margin-left: -400px;
+            margin-top: -170px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+    </style>
 </head>
+
 <body>
-<!-- 代码 开始 -->
-<div id="mainDiv">
-		<div id="content" style="width: 1110px; height: 625px; margin-top: 57px; margin-left: 165px;">
-			<div id="loveHeart">
-				<canvas id="garden" width="670" height="625"></canvas>
-				<div id="words">
-					<div id="messages">
-						testing the infmation in english
-						<div id="elapseClock"><span class="digit">0</span> 年 <span class="digit">0</span> 月 <span class="digit">0</span> 天 <span class="digit">0</span> 时 <span class="digit">0</span> 分 <span class="digit">0</span> 秒</div>
-					</div>
-					<div id="loveu">
-						Love in accumulation, any time!<br> 
-						<div class="signature">——<a href="http://yanhaijing.com" target="_blank">颜海镜</a></div>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-	</div>
-	<script type="text/javascript">
-		var offsetX = $("#loveHeart").width() / 2;
-		var offsetY = $("#loveHeart").height() / 2 - 55;
-		var displayMode = 1;
-		var together = new Date();
-		together.setFullYear(1970, 0, 0);
-		together.setHours(0);
-		together.setMinutes(0);
-		together.setSeconds(0);
-		together.setMilliseconds(0);
-		
-		$("#loveHeart").click(function(){
-			displayMode *= -1;
-			timeElapse(together, displayMode);
-		});
-		
-		if (!document.createElement('canvas').getContext) {
-			var msg = document.createElement("div");
-			msg.id = "errorMsg";
-			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
-			document.body.appendChild(msg);
-			$("#code").css("display", "none")
-			$("#copyright").css("position", "absolute");
-			$("#copyright").css("bottom", "10px");
-		    document.execCommand("stop");
-		} else {
-			setTimeout(function () {
-				adjustWordsPosition();
-				startHeartAnimation();
-			}, 100);
-
-			timeElapse(together, displayMode);
-			setInterval(function () {
-				timeElapse(together, displayMode);
-			}, 500);
-
-			adjustCodePosition();
-			$("#code").typewriter();
-		}
-	</script>
-<div class="head-warp">
-  <div class="head">
-        <div class="nav-box">
-          <ul>
-              <li class="cur" style="text-align:center; font-size:62px; font-family:'微软雅黑', '宋体';color:#fff">Love Memory</li>
-          </ul>
+    <div class="container">
+        <div class="content">
+            <h2><font color="#000000">zzp love ou</font></h2>
+            <div id="DateCountdown" data-date="2019-7-21 00:00:00"></div>
         </div>
-  </div>
-</div>
-
-<script src="js/jquery.js"></script> 
-<script src="js/main.js"></script>
-<!-- 代码 结束 -->
-<div id="copyright">
-	&copy; 2014 <a href="http://yanhaijing.com" target="_blank">颜海镜</a>
-	<a class="github" href="https://github.com/yanhaijing/loveTimeline" target="_blank" title="Fork me on GitHub"> <img width="20" height="20" align="Fork me on GitHub" src="images/auth-github.png" /></a>
- 	<a class="weibo" href="http://weibo.com/yanhaijing1234/profile" target="_blank" title="weibo"> <img width="20" height="20" align="weibo" src="images/auth-weibo.png" /></a>
-  	<a class="alipay" href='http://yanhaijing.com/mywallet/' target="_blank" title="alipay"> <img width="80" height="19" alt="alipay" src='images/btn-index.png' /></a>	
-</div>
-<div style="text-align:center;margin:20px 0 60px 0;line-height:28px">
-	idea from：<a href="http://hackerzhou.me/love/" target="_blank">hackerzhou.me</a><br>
-	Inspired by <a href="http://www.openrise.com/lab/FlowerPower/">FlowerPower</a> project.<br>　
-	lovetime from：<a href="http://www.lanrentuku.com/" target="_blank">懒人图库</a>　<br>
-	memory image from：<a href="http://jianyun.org/archives/136.html" target="_blank">闲云博客</a><br>
-	background-image from: 百度图片		
-</div>
-<a class="bshareDiv" href="https://www.bshare.cn/share">分享按钮</a><script type="text/javascript" charset="utf-8" src="https://static.bshare.cn/b/button.js#uuid=9c63467b-a311-422d-82bb-485c01affd39&amp;style=3&amp;fs=4&amp;textcolor=#fff&amp;bgcolor=#9C3&amp;text=分享到"></script>              
+    </div>
+    <script>
+        $("#DateCountdown").TimeCircles();
+    </script>
 </body>
+
 </html>
